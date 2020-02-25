@@ -24,21 +24,24 @@
 
 
 
-    <title>Weather & News</title>
+    <title>News</title>
   </head>
   <body>
 
-    <div class="container mt-5">
-      <h1>News</h1>
+    <div class="container mt-9">
+      <h1>Today's weather in <%=#{@lat}, #{@long} %></h1>
     </div>
 
 
+<div class="container sm-5">
+    <p> Today - High <%= %>, Low <%= %>, <%= %> </p> <!-- today's weather -->
+    
+    <p> Day after! - High <%= %>, Low <%= %>, <%= %> </p> <!-- following day's weather -->
+
+</div>
+
 <div class="container mt-5">
-<form action="/news">
-  <label>Enter your location:</label>
-  <input type="text" name="location">
-  <button type="submit" class="btn btn-primary">Go there</submit>
-</form>
+    <h1>News!</h1>
 </div>
 
 
