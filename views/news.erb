@@ -24,29 +24,65 @@
 
 
 
-    <title>News</title>
+    <title>Weather in <%=@city%> + News</title>
   </head>
   <body>
 
-    <div class="container mt-9">
-      <h1>Today's weather in <%=#{@lat}, #{@long} %></h1>
+          <div class="jumbotron">
+            <div class="container">
+                <h1 class="display-4">Weather!</h1>
+                <!-- <hr class="my-4"> -->
+            </div>
+        </div>
+
+    <div class="container ">
+      <h2> In <%=@city%>, it is currently <%= @current_temp %>°F and <%= @current_summary %>.</h2>
+        <h3>Extended forecast:</h3>
+        <br>
     </div>
 
 
-<div class="container sm-5">
-    <p> Today - High <%= %>, Low <%= %>, <%= %> </p> <!-- today's weather -->
+<div class="container mt-8">
     
-    <p> Day after! - High <%= %>, Low <%= %>, <%= %> </p> <!-- following day's weather -->
+    <% for weather_for_that_day in @forecast_array %>
+        <h6>High of <%= weather_for_that_day["temperatureHigh"].round(0) %>°F,
+         Low of <%= weather_for_that_day["temperatureLow"].round(0) %>°F,
+         and <%= weather_for_that_day["summary"].downcase %></h6>
+         <%  condition = weather_for_that_day["summary"].downcase %>
+            <% 
+                if condition.include?("partly cloudy") 
+                    <img src="https://darksky.net/images/weather-icons/partly-cloudy-day.png">
+                elsif condition.include?("snow") || condition.include?("flurries")         
+                    <img src="https://darksky.net/images/weather-icons/snow.png">
+                elsif condition.include?("rain") || condition.include?("drizzle")         
+                    <img src="https://darksky.net/images/weather-icons/rain.png">
+                elsif condition.include?("overcast")         
+                    <img src="https://darksky.net/images/weather-icons/cloudy.png">
+                else         
+                    <img src="https://darksky.net/images/weather-icons/clear-day.png">
+                end
+            %>
+         
+         <br>
+    <% end %>
 
 </div>
 
-<div class="container mt-5">
-    <h1>News!</h1>
-</div>
 
-
-
-
+        <div class="jumbotron">
+            <div class="container">
+                <h1 class="display-4">News!</h1>
+                <!-- <hr class="my-4"> -->
+            </div>
+        </div>
+        <div class="container mt-5">
+        <% for headline in @news_headline %>
+            <a href= <%= headline['url']%>>
+             <p><%= headline['title'] %></p> 
+            </a>           
+        <% end %>    
+        </div>
+    
 
 
     <!-- Optional JavaScript -->
