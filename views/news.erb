@@ -49,19 +49,19 @@
          Low of <%= weather_for_that_day["temperatureLow"].round(0) %>°F,
          and <%= weather_for_that_day["summary"].downcase %></h6>
          <%  condition = weather_for_that_day["summary"].downcase %>
-            <% 
-                if condition.include?("partly cloudy") 
-                    <img src="https://darksky.net/images/weather-icons/partly-cloudy-day.png">
+             
+                <%=if condition.include?("partly cloudy") 
+                    img_tag=("partly-cloudy-day.png")
                 elsif condition.include?("snow") || condition.include?("flurries")         
-                    <img src="https://darksky.net/images/weather-icons/snow.png">
+                    img_tag=("snow.png")
                 elsif condition.include?("rain") || condition.include?("drizzle")         
-                    <img src="https://darksky.net/images/weather-icons/rain.png">
+                    img_tag=("assets/rain.png")
                 elsif condition.include?("overcast")         
-                    <img src="https://darksky.net/images/weather-icons/cloudy.png">
+                    img_tag=("cloudy.png")
                 else         
-                    <img src="https://darksky.net/images/weather-icons/clear-day.png">
-                end
-            %>
+                    img_tag=("clear-day.png")
+                end %>
+            
          
          <br>
     <% end %>
