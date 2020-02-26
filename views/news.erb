@@ -88,7 +88,7 @@
     <% for weather_for_that_day in @forecast_array %>
                 <div class="row">
                 <div class="col-7">
-        <h5>High of <%= weather_for_that_day["temperatureHigh"].round(0) %>°F,
+        <h5>Next day, a High of <%= weather_for_that_day["temperatureHigh"].round(0) %>°F,
          Low of <%= weather_for_that_day["temperatureLow"].round(0) %>°F,
          and <%= weather_for_that_day["summary"].downcase %></h5>
          <%  condition = weather_for_that_day["summary"].downcase %>
