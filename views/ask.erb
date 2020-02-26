@@ -28,20 +28,27 @@
   </head>
   <body>
 
-    <div class="container mt-5">
-      <h1>News</h1>
-    </div>
+          <div class="jumbotron">
+            <div class="container">
+                <h1 class="display-4">Weather & News WOW!!</h1>
+                <!-- <hr class="my-4"> -->
+            </div>
+        </div>
 
+        <div class="container">
+                <form action="/news">
+                <div class="form-row">
+                <div class="col-8">
+                <input type="text" name="location" placeholder="Gimme city!..." class="form-control">
+                </div>
+                <div class="col">
+                <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i></submit>
+                                </div>
+            </div>
+                </form>
+                
 
-<div class="container mt-5">
-<form action="/news">
-  <label>Enter your location:</label>
-  <input type="text" name="location">
-  <button type="submit" class="btn btn-primary">Go there</submit>
-</form>
-</div>
-
-
+        </div>
 
 
 

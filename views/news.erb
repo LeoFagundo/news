@@ -35,6 +35,21 @@
             </div>
         </div>
 
+        <div class="container">
+                <form action="/news">
+                <div class="form-row">
+                <div class="col-8">
+                <input type="text" name="location" placeholder="<%=@city%>" class="form-control">
+                </div>
+                <div class="col">
+                <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i></submit>
+                                </div>
+            </div>
+                </form>
+                
+
+        </div>
+<br>
     <div class="container ">
         <div class="row">
       <h2> In <%=@city%>, it is currently <%= @current_temp %>°F and <%= @current_summary %>.</h2>
@@ -55,7 +70,7 @@
 
                 <div class="row justify-content-md-center">
                 <div class="col-12 align-self-center">    
-                <img class="thumbnail img-responsive" src= "<%= img_tag %>.png">
+                <img class="img-responsive" src= "<%= img_tag %>.png">
                 </div>
                 </div>
                 <br>
@@ -72,7 +87,7 @@
                 
     <% for weather_for_that_day in @forecast_array %>
                 <div class="row">
-                <div class="col-8">
+                <div class="col-7">
         <h5>High of <%= weather_for_that_day["temperatureHigh"].round(0) %>°F,
          Low of <%= weather_for_that_day["temperatureLow"].round(0) %>°F,
          and <%= weather_for_that_day["summary"].downcase %></h5>
@@ -98,6 +113,7 @@
     <% end %>
                 
 </div>
+
 
 
         <div class="jumbotron">

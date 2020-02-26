@@ -1,12 +1,11 @@
-body {
-    background-image: url("assets/triangle_mosaic.png") repeat 0 0;
+body{
+    background-image: url("assets/triangle_mosaic.png");
     font-family: 'Roboto', sans-serif;
-
 }
 
 h1{
     color: black;
-    font-size: 96px;
+    font-size: 120px;
     margin-top: 10px;
     margin-bottom: 20px;
     margin-left: 50px;
@@ -18,10 +17,17 @@ h1{
     font-family: 'Quicksand', sans-serif;
 }
 
+h2 {
+  margin-top: 50px !important;
+}
 
+h3 {
+  margin-top: 30px !important;
+  margin-bottom: 30px !important;
+}
 
-img {
-    height: 320px;
+.thumbnail {
+    height: 180px;
     /* width: 320px;*/
 }
 
@@ -41,8 +47,7 @@ em{
 .right {
     text-align: right;
 }
-.tacos{
-    color: teal;
+
 }
 .big {
     font-size: 32px;
