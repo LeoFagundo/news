@@ -36,36 +36,67 @@
         </div>
 
     <div class="container ">
+        <div class="row">
       <h2> In <%=@city%>, it is currently <%= @current_temp %>°F and <%= @current_summary %>.</h2>
-        <h3>Extended forecast:</h3>
-        <br>
+
+
+                <%if @current_summary.include?("partly cloudy") 
+                    img_tag=("assets/partly-cloudy-day")
+                elsif @current_summary.include?("snow") || @current_summary.include?("flurries")         
+                    img_tag=("assets/snow")
+                elsif @current_summary.include?("rain") || @current_summary.include?("drizzle")         
+                    img_tag=("assets/rain")
+                elsif @current_summary.include?("overcast")         
+                    img_tag=("assets/cloudy")
+                else         
+                    img_tag=("assets/clear-day")
+                end %>
+                </div>
+
+                <div class="row justify-content-md-center">
+                <div class="col-12 align-self-center">    
+                <img class="thumbnail img-responsive" src= "<%= img_tag %>.png">
+                </div>
+                </div>
+                <br>
+        
+                <div class="row">
+                <h3>Extended forecast:</h3>
+                <br>
+        </div>
     </div>
 
 
-<div class="container mt-8">
-    
-    <% for weather_for_that_day in @forecast_array %>
-        <h6>High of <%= weather_for_that_day["temperatureHigh"].round(0) %>°F,
-         Low of <%= weather_for_that_day["temperatureLow"].round(0) %>°F,
-         and <%= weather_for_that_day["summary"].downcase %></h6>
-         <%  condition = weather_for_that_day["summary"].downcase %>
-             
-                <%=if condition.include?("partly cloudy") 
-                    img_tag=("partly-cloudy-day.png")
-                elsif condition.include?("snow") || condition.include?("flurries")         
-                    img_tag=("snow.png")
-                elsif condition.include?("rain") || condition.include?("drizzle")         
-                    img_tag=("assets/rain.png")
-                elsif condition.include?("overcast")         
-                    img_tag=("cloudy.png")
-                else         
-                    img_tag=("clear-day.png")
-                end %>
+<div class="container">
             
-         
+                
+    <% for weather_for_that_day in @forecast_array %>
+                <div class="row">
+                <div class="col-8">
+        <h5>High of <%= weather_for_that_day["temperatureHigh"].round(0) %>°F,
+         Low of <%= weather_for_that_day["temperatureLow"].round(0) %>°F,
+         and <%= weather_for_that_day["summary"].downcase %></h5>
+         <%  condition = weather_for_that_day["summary"].downcase %>
+                <%if condition.include?("partly cloudy") 
+                    img_tag=("assets/partly-cloudy-day")
+                elsif condition.include?("snow") || condition.include?("flurries")         
+                    img_tag=("assets/snow")
+                elsif condition.include?("rain") || condition.include?("drizzle")         
+                    img_tag=("assets/rain")
+                elsif condition.include?("overcast")         
+                    img_tag=("assets/cloudy")
+                else         
+                    img_tag=("assets/clear-day")
+                end %>
+                </div>
+                <div class="col">    
+                <img class="thumbnail img-responsive" src= "<%= img_tag %>.png">
+                </div>
+                </div>
+
          <br>
     <% end %>
-
+                
 </div>
 
 
